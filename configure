@@ -3214,9 +3214,8 @@ SODIUM_LIBRARY_VERSION=19:0:1
 LX_CFLAGS=${CFLAGS-NONE}
 
 
-if test pwd | fgrep ' ' > /dev/null 2>&1; then :
-  { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: The build directory contains whitespaces - This can cause tests/installation to fail due to limitations of some libtool versions" >&5
-$as_echo "$as_me: WARNING: The build directory contains whitespaces - This can cause tests/installation to fail due to limitations of some libtool versions" >&2;}
+if pwd | fgrep ' ' > /dev/null 2>&1; then :
+  as_fn_error $? "The build directory contains whitespaces - This can cause tests/installation to fail due to limitations of some libtool versions" "$LINENO" 5
 
 fi
 
@@ -3264,8 +3263,15 @@ fi
 if test "x$EMSCRIPTEN" != "x"; then :
 
   enable_asm="no"
-  { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: compiling to javascript - asm implementations disabled" >&5
-$as_echo "$as_me: WARNING: compiling to javascript - asm implementations disabled" >&2;}
+  { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: compiling to JavaScript - asm implementations disabled" >&5
+$as_echo "$as_me: WARNING: compiling to JavaScript - asm implementations disabled" >&2;}
+
+fi
+if test "$host_os" = "nacl" -o "$host_os" = "pnacl"; then :
+
+  enable_asm="no"
+  { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: compiling to Native Client - asm implementations disabled" >&5
+$as_echo "$as_me: WARNING: compiling to Native Client - asm implementations disabled" >&2;}
 
 fi
 

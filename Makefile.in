@@ -202,7 +202,7 @@ am__DIST_COMMON = $(srcdir)/Makefile.in \
 	$(top_srcdir)/build-aux/ltmain.sh \
 	$(top_srcdir)/build-aux/missing \
 	$(top_srcdir)/src/libsodium/include/sodium/version.h.in \
-	AUTHORS ChangeLog README THANKS build-aux/compile \
+	AUTHORS ChangeLog THANKS build-aux/compile \
 	build-aux/config.guess build-aux/config.sub \
 	build-aux/install-sh build-aux/ltmain.sh build-aux/missing \
 	compile config.guess config.sub depcomp install-sh ltmain.sh \

@@ -97,7 +97,7 @@ host_triplet = @host@
 @EMSCRIPTEN_FALSE@@NATIVECLIENT_TRUE@	randombytes/nativeclient/randombytes_nativeclient.c
 
 @EMSCRIPTEN_FALSE@@NATIVECLIENT_FALSE@am__append_3 = \
-@EMSCRIPTEN_FALSE@@NATIVECLIENT_FALSE@    randombytes/sysrandom/randombytes_sysrandom.c
+@EMSCRIPTEN_FALSE@@NATIVECLIENT_FALSE@	randombytes/sysrandom/randombytes_sysrandom.c
 
 @HAVE_TI_MODE_TRUE@am__append_4 = \
 @HAVE_TI_MODE_TRUE@	crypto_scalarmult/curve25519/donna_c64/curve25519_donna_c64.c \
