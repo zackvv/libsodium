@@ -14,14 +14,15 @@
 # include <sys/mman.h>
 #endif
 
-#include "utils.h"
-#include "randombytes.h"
 #ifdef _WIN32
 # include <windows.h>
 # include <wincrypt.h>
 #else
 # include <unistd.h>
 #endif
+
+#include "utils.h"
+#include "randombytes.h"
 
 #ifndef ENOSYS
 # define ENOSYS ENXIO
@@ -48,6 +49,10 @@
 #endif
 #if defined(HAVE_ALIGNED_MALLOC) && (defined(WINAPI_DESKTOP) || defined(HAVE_MPROTECT))
 # define HAVE_PAGE_PROTECTION
+#endif
+#if !defined(MADV_DODUMP) && defined(MADV_CORE)
+# define MADV_DODUMP   MADV_CORE
+# define MADV_DONTDUMP MADV_NOCORE
 #endif
 
 static size_t page_size;
