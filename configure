@@ -16305,7 +16305,7 @@ fi
 { $as_echo "$as_me:${as_lineno-$LINENO}: result: $ax_cv_check_cflags___mavx2" >&5
 $as_echo "$ax_cv_check_cflags___mavx2" >&6; }
 if test "x$ax_cv_check_cflags___mavx2" = xyes; then :
-  CFLAGS_AVX="-mavx2"
+  CFLAGS_AVX2="-mavx2"
 else
   :
 fi
