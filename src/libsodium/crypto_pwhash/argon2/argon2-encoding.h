@@ -2,6 +2,7 @@
 #define argon2_encoding_H
 
 #include "argon2.h"
+#include "private/quirks.h"
 
 /*
  * encode an Argon2 hash string into the provided buffer. 'dst_len'
@@ -17,16 +18,18 @@
  *
  * No other parameters are checked
  */
-int encode_string(char *dst, size_t dst_len, argon2_context *ctx,
-                  argon2_type type);
+int argon2_encode_string(char *dst, size_t dst_len, argon2_context *ctx,
+                         argon2_type type);
 
 /*
  * Decodes an Argon2 hash string into the provided structure 'ctx'.
- * The fields ctx.saltlen, ctx.adlen, ctx.outlen set the maximal salt, ad, out length values
+ * The fields ctx.saltlen, ctx.adlen, ctx.outlen set the maximal salt, ad, out
+ * length values
  * that are allowed; invalid input string causes an error
  *
  * Returned value is ARGON2_OK on success.
  */
-int decode_string(argon2_context *ctx, const char *str, argon2_type type);
+int argon2_decode_string(argon2_context *ctx, const char *str,
+                         argon2_type type);
 
 #endif
